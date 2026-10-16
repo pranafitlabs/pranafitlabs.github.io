@@ -62,7 +62,7 @@ span.brand-mark{background:var(--orange);color:#0a0a0a;font-family:'Anton',Impac
 .hero::before{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:56px 56px;pointer-events:none}
 .hero::after{content:"";position:absolute;top:-180px;right:-120px;width:560px;height:560px;z-index:2;background:radial-gradient(circle,var(--orange-soft),transparent 65%);pointer-events:none}
 .hero-tag{position:absolute;top:16px;right:20px;z-index:3;left:auto;bottom:auto}
-.hero .wrap{position:relative;z-index:3;padding-top:84px;padding-bottom:0}
+.hero .wrap{position:relative;z-index:3;padding-top:84px;padding-bottom:0;display:flex;flex-direction:column;min-height:560px}
 .hero-brand{font-family:'Anton',Impact,sans-serif;font-size:clamp(14px,1.8vw,20px);letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
 .hero h1{font-size:clamp(36px,5.5vw,72px);margin-bottom:22px}
 .outline{color:var(--orange)}
@@ -74,10 +74,24 @@ span.brand-mark{background:var(--orange);color:#0a0a0a;font-family:'Anton',Impac
 .btn:hover{background:transparent;color:var(--orange)}
 .btn.ghost{background:transparent;color:var(--white);border-color:var(--line)}
 .btn.ghost:hover{border-color:var(--orange);color:var(--orange)}
-.hero-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:0}
+.hero-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:0;margin-top:auto}
 .hero-meta>div{background:rgba(10,10,10,.92);padding:16px 18px}
 .hero-meta dt{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--silver);font-weight:700}
 .hero-meta dd{font-family:'Anton',Impact,sans-serif;font-size:17px;text-transform:uppercase;color:var(--white);margin-top:5px;letter-spacing:.04em}
+
+/* HERO MAIN + PHONE MOCKUP */
+.hero-main{display:flex;gap:36px;align-items:center;flex:1}
+.hero-copy{flex:1 1 auto;min-width:0}
+.phone-zone{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:10px}
+.phone{position:relative;width:240px;height:480px;background:#050505;border:2px solid #2e2e2e;border-radius:40px;box-shadow:0 0 0 3px #161616,0 26px 60px rgba(0,0,0,.65),0 0 90px rgba(255,95,31,.16);overflow:hidden}
+.phone-notch{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:86px;height:20px;background:#050505;border:2px solid #2e2e2e;border-radius:12px;z-index:6}
+.phone-screen{position:absolute;inset:7px;border-radius:30px;overflow:hidden;background:#101010}
+.phone-screen img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.ph-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:7;width:32px;height:32px;border-radius:50%;background:rgba(10,10,10,.78);border:1px solid var(--orange);color:var(--orange);font-size:16px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;padding:0}
+.ph-nav:hover{background:var(--orange);color:#0a0a0a}
+.ph-nav.prev{left:8px}
+.ph-nav.next{right:8px}
+.shot-count{font-family:'Anton',Impact,sans-serif;font-size:11px;letter-spacing:.3em;color:var(--silver);text-transform:uppercase}
 
 /* MARQUEE */
 .marquee{position:relative;z-index:3;border-top:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:13px 0}
@@ -165,13 +179,16 @@ section[id]{scroll-margin-top:70px}
   .grid3,.grid2,.about-grid,.contact-grid{grid-template-columns:1fr}
   .grid4{grid-template-columns:1fr 1fr}
   .hero-meta{grid-template-columns:1fr 1fr}
-  .hero .wrap{padding-top:64px}
+  .hero .wrap{padding-top:64px;min-height:500px}
+  .hero-main{flex-direction:column;align-items:flex-start;gap:30px}
+  .phone-zone{align-self:center}
   .banner{aspect-ratio:16/9}
 }
 @media (max-width:560px){
   .grid4{grid-template-columns:1fr}
   .feat-list li{font-size:17px}
   .sec{padding:52px 0}
+  .phone{width:210px;height:420px}
 }
 @media (prefers-reduced-motion: reduce){
   .reveal{opacity:1;transform:none;transition:none}
@@ -205,12 +222,27 @@ section[id]{scroll-margin-top:70px}
   <img class="hero-img" src="images/hero.jpg" alt="" data-fallback="images/hero.jpg" data-fb-class="hero-tag">
   <div class="hero-shade" aria-hidden="true"></div>
   <div class="wrap">
-    <p class="hero-brand">The Prana Lab</p>
-    <h1>Fitness that <span class="outline">fits</span> your life.</h1>
-    <p class="hero-sub">A subscription fitness app for iOS and Android — currently in development. <strong>Launching soon.</strong></p>
-    <div class="cta-row">
-      <a class="btn" href="#train">Explore The App</a>
-      <a class="btn ghost" href="#contact">Get In Touch</a>
+    <div class="hero-main">
+      <div class="hero-copy">
+        <p class="hero-brand">The Prana Lab</p>
+        <h1>Fitness that <span class="outline">fits</span> your life.</h1>
+        <p class="hero-sub">A subscription fitness app for iOS and Android — currently in development. <strong>Launching soon.</strong></p>
+        <div class="cta-row">
+          <a class="btn" href="#train">Explore The App</a>
+          <a class="btn ghost" href="#contact">Get In Touch</a>
+        </div>
+      </div>
+      <div class="phone-zone">
+        <div class="phone">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <div class="phone-screen">
+            <img id="appScreen" src="images/yoga.jpg" alt="The Prana Lab app screenshot">
+            <button class="ph-nav prev" id="shotPrev" type="button" aria-label="Previous screenshot">‹</button>
+            <button class="ph-nav next" id="shotNext" type="button" aria-label="Next screenshot">›</button>
+          </div>
+        </div>
+        <p class="shot-count" id="shotCount">01 / 09</p>
+      </div>
     </div>
     <dl class="hero-meta">
       <div><dt>Platforms</dt><dd>iOS · Android</dd></div>
@@ -407,6 +439,24 @@ document.querySelectorAll('img.brand-mark').forEach(function(im){
   if(im.complete&&im.naturalWidth===0){swap();}
   else{im.addEventListener('error',swap);}
 });
+/* App screenshot carousel — 9 screens, falls back to yoga.jpg until real files are uploaded */
+(function(){
+  var shots=[];
+  for(var i=1;i<=9;i++){shots.push('images/appscreen'+i+'.jpg');}
+  var cur=0;
+  var scr=document.getElementById('appScreen');
+  var cnt=document.getElementById('shotCount');
+  function pad(n){return n<10?'0'+n:''+n;}
+  function show(i){
+    cur=(i+shots.length)%shots.length;
+    scr.onerror=function(){this.onerror=null;this.src='images/yoga.jpg';};
+    scr.src=shots[cur];
+    cnt.textContent=pad(cur+1)+' / '+pad(shots.length);
+  }
+  document.getElementById('shotPrev').addEventListener('click',function(){show(cur-1);});
+  document.getElementById('shotNext').addEventListener('click',function(){show(cur+1);});
+  show(0);
+})();
 </script>
 </body>
 </html>
