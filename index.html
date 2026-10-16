@@ -62,15 +62,15 @@ span.brand-mark{background:var(--orange);color:#0a0a0a;font-family:'Anton',Impac
 .hero::before{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:56px 56px;pointer-events:none}
 .hero::after{content:"";position:absolute;top:-180px;right:-120px;width:560px;height:560px;z-index:2;background:radial-gradient(circle,var(--orange-soft),transparent 65%);pointer-events:none}
 .hero-tag{position:absolute;top:16px;right:20px;z-index:3;left:auto;bottom:auto}
-.hero .wrap{position:relative;z-index:3;padding-top:56px;padding-bottom:0}
-.hero-brand{font-family:'Anton',Impact,sans-serif;font-size:clamp(14px,1.8vw,20px);letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
-.hero h1{font-size:clamp(36px,5.5vw,72px);margin-bottom:14px}
+.hero .wrap{position:relative;z-index:3;padding-top:84px;padding-bottom:0}
+.hero-brand{font-family:'Anton',Impact,sans-serif;font-size:clamp(14px,1.8vw,20px);letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.hero h1{font-size:clamp(36px,5.5vw,72px);margin-bottom:22px}
 .outline{color:var(--orange)}
 @supports (-webkit-text-stroke:2px #000){.outline{color:transparent;-webkit-text-stroke:2px var(--orange)}}
-.hero-sub{max-width:560px;font-size:15.5px;color:var(--silver)}
+.hero-sub{max-width:620px;font-size:18px;color:var(--silver)}
 .hero-sub strong{color:var(--white)}
-.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0 44px}
-.btn{display:inline-block;background:var(--orange);color:#0a0a0a;font-weight:800;font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:12px 22px;border:1px solid var(--orange);transition:.2s}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin:32px 0 54px}
+.btn{display:inline-block;background:var(--orange);color:#0a0a0a;font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:15px 28px;border:1px solid var(--orange);transition:.2s}
 .btn:hover{background:transparent;color:var(--orange)}
 .btn.ghost{background:transparent;color:var(--white);border-color:var(--line)}
 .btn.ghost:hover{border-color:var(--orange);color:var(--orange)}
@@ -165,7 +165,7 @@ section[id]{scroll-margin-top:70px}
   .grid3,.grid2,.about-grid,.contact-grid{grid-template-columns:1fr}
   .grid4{grid-template-columns:1fr 1fr}
   .hero-meta{grid-template-columns:1fr 1fr}
-  .hero .wrap{padding-top:44px}
+  .hero .wrap{padding-top:64px}
   .banner{aspect-ratio:16/9}
 }
 @media (max-width:560px){
