@@ -31,12 +31,14 @@ a{color:inherit;text-decoration:none}
 .noise{position:fixed;inset:0;pointer-events:none;z-index:2000;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='140'%20height='140'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.85'%20numOctaves='2'/%3E%3C/filter%3E%3Crect%20width='140'%20height='140'%20filter='url(%23n)'/%3E%3C/svg%3E")}
 .label{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--orange);font-weight:800;margin-bottom:12px}
 
-/* IMAGE SLOTS + PLACEHOLDERS (contain: full image, no crop) */
+/* IMAGE SLOTS + PLACEHOLDERS */
 .img-slot{position:relative;overflow:hidden;background:linear-gradient(135deg,#161616,#0f0f0f 55%,#151515)}
 .img-slot::before{content:"";position:absolute;inset:0;z-index:1;background:repeating-linear-gradient(-45deg,rgba(255,255,255,.025) 0 10px,transparent 10px 22px);pointer-events:none}
-.img-slot img{position:absolute;inset:0;z-index:2;width:100%;height:100%;object-fit:contain;filter:grayscale(1) contrast(1.12) brightness(.9);transition:transform .5s ease}
-.img-slot:hover img{transform:scale(1.03)}
+.img-slot img{position:absolute;inset:0;z-index:2;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.12) brightness(.9);transition:transform .5s ease}
+.img-slot:hover img{transform:scale(1.04)}
 .ar-card{aspect-ratio:16/10}
+.train-slot{aspect-ratio:1/2}
+.train-slot img{object-position:center top}
 .banner{aspect-ratio:21/9;border:1px solid var(--line)}
 .ph-tag{position:absolute;left:12px;bottom:12px;z-index:3;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--silver);background:rgba(10,10,10,.72);border:1px dashed #3f3f3f;padding:5px 9px;pointer-events:none}
 .numchip{position:absolute;top:12px;right:12px;z-index:3;font-family:'Anton',Impact,sans-serif;font-size:17px;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);background:rgba(10,10,10,.85);border:1px solid var(--orange);padding:6px 12px}
@@ -179,6 +181,7 @@ section[id]{scroll-margin-top:70px}
   .hero .wrap{padding-top:64px;min-height:500px}
   .hero-main{flex-direction:column;align-items:flex-start;gap:30px}
   .phone-zone{align-self:center}
+  .train-slot{width:100%;max-width:360px;margin:0 auto}
   .banner{aspect-ratio:16/9}
 }
 @media (max-width:560px){
@@ -187,6 +190,7 @@ section[id]{scroll-margin-top:70px}
   .sec{padding:52px 0}
   .phone{width:210px;height:420px}
   .ph-nav{width:38px;height:38px;font-size:20px}
+  .train-slot{max-width:300px}
 }
 @media (prefers-reduced-motion: reduce){
   .reveal{opacity:1;transform:none;transition:none}
@@ -297,21 +301,21 @@ section[id]{scroll-margin-top:70px}
     <h2>Gym. Calisthenics. <span class="accent">Yoga.</span></h2>
     <div class="grid3">
       <div class="card reveal">
-        <div class="img-slot ar-card">
+        <div class="img-slot train-slot">
           <img src="images/gym.jpg" alt="Athlete lifting weights in a dark gym" loading="lazy" data-fallback="images/gym.jpg">
           <span class="numchip">A</span>
         </div>
         <div class="card-body"><h3>Gym</h3><p>Sets, reps, load, rest — log every lift with full detail and watch the numbers climb session after session.</p></div>
       </div>
       <div class="card reveal">
-        <div class="img-slot ar-card">
+        <div class="img-slot train-slot">
           <img src="images/calisthenics.jpg" alt="Athlete doing calisthenics outdoors" loading="lazy" data-fallback="images/calisthenics.jpg">
           <span class="numchip">B</span>
         </div>
         <div class="card-body"><h3>Calisthenics</h3><p>Reps, holds, and skills. From your first push-up to your hardest progression — count every single one.</p></div>
       </div>
       <div class="card reveal">
-        <div class="img-slot ar-card">
+        <div class="img-slot train-slot">
           <img src="images/yoga.jpg" alt="Person practicing yoga in low light" loading="lazy" data-fallback="images/yoga.jpg">
           <span class="numchip">C</span>
         </div>
